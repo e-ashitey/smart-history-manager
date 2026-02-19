@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart History Manager</title>
+    <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+
+    <!-- Header / Search -->
+    <header>
+        <div class="header-title">
+            <span class="icon">🔍</span>
+            <h1>Smart History Manager</h1>
+        </div>
+        <div class="search-row">
+            <input id="search" type="text" placeholder="Search by keyword or URL…" autocomplete="off"
+                spellcheck="false" />
+            <button id="btn-search" class="btn btn-primary">Search</button>
+        </div>
+    </header>
+
+    <!-- Toolbar (shown after search) -->
+    <div id="toolbar">
+        <div class="left">
+            <span id="result-summary" class="result-summary"></span>
+        </div>
+        <div class="right">
+            <button id="btn-delete-selected" class="btn btn-danger btn-sm" disabled>
+                Delete selected
+            </button>
+            <button id="btn-clear" class="btn btn-ghost btn-sm">Clear</button>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div id="results">
+        <div class="state-box">
+            <span class="state-icon">🕐</span>
+            <p class="state-title">Search your history</p>
+            <p class="state-desc">Enter a keyword or paste a URL above to find and clean up matching history entries.
+            </p>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast"></div>
+
+    <script src="popup.js" type="module"></script>
+</body>
+
+</html>
