@@ -10,41 +10,59 @@
 
 <body>
 
-    <!-- Header / Search -->
+    <!-- Fixed header / Search -->
     <header>
         <div class="header-title">
             <span class="icon">🔍</span>
             <h1>Smart History Manager</h1>
         </div>
         <div class="search-row">
-            <input id="search" type="text" placeholder="Search by keyword or URL…" autocomplete="off"
-                spellcheck="false" />
+            <div class="search-input-wrap">
+                <input id="search" type="text" placeholder="Search by keyword or URL…" autocomplete="off"
+                    spellcheck="false" />
+                <button id="btn-clear-search" class="btn-clear-x" aria-label="Clear search" hidden>✕</button>
+            </div>
             <button id="btn-search" class="btn btn-primary">Search</button>
         </div>
     </header>
 
-    <!-- Toolbar (shown after search) -->
-    <div id="toolbar">
-        <div class="left">
-            <span id="result-summary" class="result-summary"></span>
-        </div>
-        <div class="right">
-            <button id="btn-delete-selected" class="btn btn-danger btn-sm" disabled>
-                Delete selected
-            </button>
-            <button id="btn-clear" class="btn btn-ghost btn-sm">Clear</button>
-        </div>
-    </div>
+    <!-- Scrollable content area -->
+    <div class="scroll-area">
 
-    <!-- Results -->
-    <div id="results">
-        <div class="state-box">
-            <span class="state-icon">🕐</span>
-            <p class="state-title">Search your history</p>
-            <p class="state-desc">Enter a keyword or paste a URL above to find and clean up matching history entries.
-            </p>
+        <!-- Smart Suggestions panel (shown when suggestions are found) -->
+        <section id="suggestions-section" hidden>
+            <div class="suggestions-header">
+                <span class="suggestions-heading-icon">✨</span>
+                <span class="suggestions-heading-text">Smart Cleanup Suggestions</span>
+                <span id="suggestions-count" class="suggestions-badge"></span>
+            </div>
+            <div id="suggestions-list"></div>
+        </section>
+
+        <!-- Toolbar (shown after manual search) -->
+        <div id="toolbar">
+            <div class="left">
+                <span id="result-summary" class="result-summary"></span>
+            </div>
+            <div class="right">
+                <button id="btn-delete-selected" class="btn btn-danger btn-sm" disabled>
+                    Delete selected
+                </button>
+                <button id="btn-clear" class="btn btn-ghost btn-sm">Clear</button>
+            </div>
         </div>
-    </div>
+
+        <!-- Results -->
+        <div id="results">
+            <div class="state-box">
+                <span class="state-icon">🕐</span>
+                <p class="state-title">Search your history</p>
+                <p class="state-desc">Enter a keyword or paste a URL above to find and clean up matching history
+                    entries.</p>
+            </div>
+        </div>
+
+    </div><!-- /.scroll-area -->
 
     <!-- Toast notification -->
     <div id="toast"></div>
